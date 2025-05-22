@@ -68,6 +68,34 @@ public:
 
     uint8_t GetObserverMode();
     SOURCESDK::CS2::CBaseHandle GetObserverTarget();
+
+    // Methods needed for AGR recording
+    bool IsPlayer() { return IsPlayerPawn() || IsPlayerController(); }
+    
+    int GetBoneCount() { return 0; /* Stub implementation */ }
+    
+    void GetBoneMatrix(int boneIndex, float outMatrix[12]) { 
+        // Stub implementation - identity matrix
+        static const float identityMatrix[12] = {1,0,0,0, 0,1,0,0, 0,0,1,0};
+        memcpy(outMatrix, identityMatrix, sizeof(float) * 12);
+    }
+    
+    int32_t GetOwnerHandle() { return -1; /* Stub implementation */ }
+    
+    const char* GetModelName() { return "unknown_model"; /* Stub implementation */ }
+    
+    int32_t GetSequence() { return 0; /* Stub implementation */ }
+    
+    float GetCycle() { return 0.0f; /* Stub implementation */ }
+    
+    bool IsActive() { return true; /* Stub implementation */ }
+    
+    void GetVelocity(float outVelocity[3]) {
+        // Stub implementation - zero velocity
+        outVelocity[0] = 0.0f;
+        outVelocity[1] = 0.0f;
+        outVelocity[2] = 0.0f;
+    }
 };
 
 typedef EntityListIterator * (__fastcall * GetHighestEntityIterator_t)(void * entityList, EntityListIterator * it);

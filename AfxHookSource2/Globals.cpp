@@ -4,6 +4,13 @@
 #include <iomanip> 
 #include <algorithm>
 #include <bitset>
+#include "stdafx.h"
+
+#include <Windows.h>
+#include <iostream>
+#include "../shared/binutils.h"
+
+bool g_AfxHookSourceInput = false; // Initialize to false
 
 void ErrorBox(char const * messageText) {
 	MessageBoxA(0, messageText, "Error - AfxHookSource2", MB_OK|MB_ICONERROR);

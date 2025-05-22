@@ -14,6 +14,9 @@ extern void ErrorBox();
 
 extern size_t getAddress(HMODULE dll, char const* pattern);
 
+// Global variable declarations
+extern bool g_AfxHookSourceInput;
+
 namespace afxUtils {
 	struct RGBA {
 		uint8_t r;

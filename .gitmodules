@@ -33,3 +33,7 @@
 [submodule "deps/release/injector"]
 	path = deps/release/injector
 	url = https://github.com/advancedfx/injector.git
+[submodule "deps/release/hl2sdk"]
+	path = deps/release/hl2sdk
+	url = https://github.com/alliedmodders/hl2sdk.git
+	branch = cs2

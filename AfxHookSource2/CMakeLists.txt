@@ -199,6 +199,7 @@ target_sources(${PROJECT_NAME} PRIVATE
 
     AfxHookSource2Rs.cpp
     AfxHookSource2Rs.h
+    MirvAgr.cpp
 
     AfxShaders.cpp
     AfxShaders.h
@@ -259,6 +260,8 @@ target_sources(${PROJECT_NAME} PRIVATE
 
     WrpConsole.cpp
     WrpConsole.h
+
+    MirvAgr.h
 )
 
 # This is far form proper, but it will do for now:
@@ -272,6 +275,12 @@ source_group("deps/release/prop/cs2/sdk_src/public/appframework" REGULAR_EXPRESS
 source_group("deps/release/prop/cs2/sdk_src/public/interfaces" REGULAR_EXPRESSION "/deps/release/prop/cs2/sdk_src/public/interfaces/")
 source_group("deps/release/prop/cs2/sdk_src/public/tier0" REGULAR_EXPRESSION "/deps/release/prop/cs2/sdk_src/public/tier0/")
 source_group("deps/release/prop/cs2/sdk_src/public/tier1" REGULAR_EXPRESSION "/deps/release/prop/cs2/sdk_src/public/tier1/")
+source_group("deps/release/hl2sdk" REGULAR_EXPRESSION "/deps/release/hl2sdk/")
+source_group("deps/release/hl2sdk/public" REGULAR_EXPRESSION "/deps/release/hl2sdk/public/")
+source_group("deps/release/hl2sdk/public/appframework" REGULAR_EXPRESSION "/deps/release/hl2sdk/public/appframework/")
+source_group("deps/release/hl2sdk/public/interfaces" REGULAR_EXPRESSION "/deps/release/hl2sdk/public/interfaces/")
+source_group("deps/release/hl2sdk/public/tier0" REGULAR_EXPRESSION "/deps/release/hl2sdk/public/tier0/")
+source_group("deps/release/hl2sdk/public/tier1" REGULAR_EXPRESSION "/deps/release/hl2sdk/public/tier1/")
 
 
 source_group("shared" REGULAR_EXPRESSION "/shared/")

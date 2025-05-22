@@ -17,6 +17,7 @@
 #include "MirvColors.h"
 #include "MirvFix.h"
 #include "MirvTime.h"
+#include "MirvAgr.h"
 
 #include "../deps/release/prop/AfxHookSource/SourceSdkShared.h"
 #include "../deps/release/prop/AfxHookSource/SourceInterfaces.h"
@@ -1462,7 +1463,7 @@ void  new_CS2_Client_FrameStageNotify(void* This, SOURCESDK::CS2::ClientFrameSta
 			}
 		}
 		bCursorHidden = true;
-	}
+		}
 	else if(bCursorHidden) {
 		bCursorHidden = false;
 		ShowCursor(TRUE);
@@ -1472,6 +1473,13 @@ void  new_CS2_Client_FrameStageNotify(void* This, SOURCESDK::CS2::ClientFrameSta
 	case SOURCESDK::CS2::FRAME_RENDER_START:
 		// This apparently doesn't get called when demo is paused.
 		g_CommandSystem.OnExecuteCommands();
+		g_AfxHookSourceInput = true;
+		break;
+	case SOURCESDK::CS2::FRAME_RENDER_END:
+		g_AfxHookSourceInput = false;
+		break;
+	case SOURCESDK::CS2::FRAME_NET_UPDATE_END:
+		if (g_DeathMsgEnabled) IterateEntities();
 		break;
 	}
 
@@ -1484,6 +1492,11 @@ void  new_CS2_Client_FrameStageNotify(void* This, SOURCESDK::CS2::ClientFrameSta
 	switch(curStage) {
 	case SOURCESDK::CS2::FRAME_RENDER_END:
 		AfxHookSource2Rs_Engine_RunJobQueue();
+		
+		// AGR recording capture frame - good place to capture the game state
+		if (g_MirvAgr.IsRecording()) {
+			g_MirvAgr.CaptureFrame();
+		}
 		break;
 	}
 }

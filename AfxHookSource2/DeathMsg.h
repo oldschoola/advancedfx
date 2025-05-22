@@ -4,6 +4,8 @@
 
 void HookDeathMsg(HMODULE clientDll);
 void HookPanorama(HMODULE panoramaDll);
+void IterateEntities();
+extern bool g_DeathMsgEnabled;
 
 struct currentGameCamera {
 	double origin[3];

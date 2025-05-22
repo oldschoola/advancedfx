@@ -17,6 +17,7 @@
 #include "MirvColors.h" //
 
 currentGameCamera g_CurrentGameCamera;
+bool g_DeathMsgEnabled = false; // Default to disabled
 
 struct PlayerInfo {
 	char* name;
@@ -1479,3 +1480,14 @@ CON_COMMAND(mirv_deathmsg, "controls death notification options")
 {
 	mirvDeathMsg_Console(args);
 };
+
+// Function to iterate through entities to collect death messages
+void IterateEntities() {
+    if (!g_DeathMsgEnabled) return;
+    
+    EntityListIterator it;
+    int highestIndex = g_GetHighestEntityIterator(*g_pEntityList, &it)->GetIndex();
+    
+    // Placeholder implementation - this should be implemented with actual game-specific code
+    // to collect death messages from the entities
+}
